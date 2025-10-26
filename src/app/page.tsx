@@ -1,130 +1,316 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Wallet, QrCode, BadgeCheck, Mail, Zap } from 'lucide-react'
-import Link from 'next/link'
-import { useState } from 'react'
+import { Wallet, QrCode, BadgeCheck, Mail } from 'lucide-react'
+import { FaXTwitter } from 'react-icons/fa6'
+import Image from 'next/image'
 
 export default function LandingPage() {
-  const [walletConnected, setWalletConnected] = useState(false)
-
   return (
-    <main className="min-h-screen bg-[#0e0524] text-white font-inter">
+    <main
+      style={{
+        minHeight: '100vh',
+        backgroundColor: '#0e0524',
+        color: 'white',
+        fontFamily: 'Inter, sans-serif',
+        overflowX: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+    {/* HEADER */}
+    <header
+      style={{
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '50px',
+        zIndex: 50,
+      }}
+    >
+      {/* Centered Logo */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{
+          borderRadius: '10%',
+          overflow: 'hidden',
+          boxShadow: '0 0 25px rgba(207, 73, 104, 0.5)',
+        }}
+      >
+        <Image
+          src="/logo2.jpg"
+          alt="Materialize Logo"
+          width={300}
+          height={200}
+          style={{ objectFit: 'contain', borderRadius: '50%' }}
+          priority
+        />
+      </motion.div>
+
+      {/* X (Twitter) Icon - Top Right Corner */}
+      <a
+        href="https://x.com/materializeee"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: 'absolute',
+          right: 30,
+          top: 40,
+          color: '#cf4968',
+          fontSize: 32,
+          textDecoration: 'none',
+          textShadow: '0 0 10px rgba(207, 73, 104, 0.8)',
+          transition: 'all 0.3s ease',
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+        onMouseLeave={(e) => (e.currentTarget.style.color = '#cf4968')}
+      >
+        <FaXTwitter />
+      </a>
+    </header>
+
+
       {/* HERO */}
-      <section className="text-center py-28 px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-6xl font-extrabold bg-clip-text text-transparent bg-linear-to-r from-violet-400 to-fuchsia-400 mb-4"
+      <section
+        style={{
+          minHeight: '70vh',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '60px 20px 20px',
+          textAlign: 'center',
+        }}
+      >
+        <motion.div
+          style={{
+            maxWidth: 800,
+            aspectRatio: '1 / 1',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
-          Materialize Market
-        </motion.h1>
-        <p className="text-lg text-purple-300 max-w-xl mx-auto">
-          Reverse RWA for the real world — linking physical art, collectibles, and culture
-          to verified on-chain ownership.
-        </p>
-
-        {/* CONNECT WALLET mock */}
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <button
-            onClick={() => setWalletConnected(!walletConnected)}
-            className={`${
-              walletConnected
-                ? 'bg-green-500 hover:bg-green-400'
-                : 'bg-linear-to-r from-fuchsia-500 to-violet-500 hover:opacity-90'
-            } text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 transition`}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{
+              fontSize: '3.5rem',
+              fontWeight: 800,
+              marginBottom: 20,
+              background: 'linear-gradient(90deg, #cf4968, #ff80a5)',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+            }}
           >
-            <Wallet className="w-5 h-5" />
-            {walletConnected ? 'Wallet Connected' : 'Connect Wallet'}
-          </button>
-        </div>
+            DeFab: When Machines Join the Blockchain
+          </motion.h1>
 
-        {walletConnected && (
-          <motion.div
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mt-6 text-purple-300 text-sm"
+            transition={{ delay: 0.3, duration: 1 }}
+            style={{
+              maxWidth: 600,
+              margin: '0 auto 40px',
+              fontSize: 18,
+              color: '#d1c1e8',
+              lineHeight: 1.6,
+            }}
           >
-            ✅ Wallet connected (mock). You can claim your NFT soon!
-          </motion.div>
-        )}
+            We’re building a world where machines have wallets, ownership is
+            production, and creation is decentralized.
+          </motion.p>
+
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <motion.a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeYRj2RxxyvdJZlbuPUJFN1oeCofCL1niUK6zSw8AKwFHU90Q/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                background: '#f5b352',
+                color: '#0e0524e0',
+                padding: '14px 36px',
+                borderRadius: 30,
+                fontWeight: 600,
+                textDecoration: 'none',
+                fontSize: 18,
+                boxShadow: '0 0 20px #cf496860',
+              }}
+            >
+              Join Waitlist →
+            </motion.a>
+
+           {/*} <motion.a
+              href="https://materializeit4me.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                border: '2px solid #f5b352',
+                color: '#f5b352',
+                padding: '14px 36px',
+                borderRadius: 30,
+                fontWeight: 600,
+                textDecoration: 'none',
+                fontSize: 18,
+                transition: 'all 0.3s',
+              }}
+            >
+              Enter Demo →
+            </motion.a> */}
+          </div>
+        </motion.div>
       </section>
 
       {/* FEATURES */}
       <section
-        id="features"
-        className="py-20 px-8 bg-[#130837]/60 backdrop-blur-md border-y border-fuchsia-800/20"
+        style={{
+          background: '#13083790',
+          backdropFilter: 'blur(8px)',
+          borderTop: '1px solid #cf496840',
+          borderBottom: '1px solid #cf496840',
+          padding: '40px 40px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: 24,
+          maxWidth: 1100,
+          margin: '0 auto',
+        }}
       >
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {[
-            {
-              icon: <Wallet className="mx-auto mb-4 w-10 h-10 text-fuchsia-400" />,
-              title: 'Connect Wallet',
-              text: 'Log in using your Solflare or Phantom wallet and verify your digital presence.',
-            },
-            {
-              icon: <QrCode className="mx-auto mb-4 w-10 h-10 text-violet-400" />,
-              title: 'Engraved Identity',
-              text: 'Each real object is engraved with a QR linking directly to its NFT record.',
-            },
-            {
-              icon: <BadgeCheck className="mx-auto mb-4 w-10 h-10 text-fuchsia-400" />,
-              title: 'Verified Ownership',
-              text: 'Claim your NFT and prove real-world possession of your collectible.',
-            },
-            {
-              icon: <Mail className="mx-auto mb-4 w-10 h-10 text-violet-400" />,
-              title: 'Future Drops',
-              text: 'Join our waitlist to receive early access to upcoming engraved editions.',
-            },
-          ].map((f) => (
-            <motion.div
-              key={f.title}
-              whileHover={{ scale: 1.05 }}
-              className="bg-[#1a0d3a] rounded-2xl p-6 border border-fuchsia-500/20 hover:border-fuchsia-400/40 transition"
-            >
-              {f.icon}
-              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-              <p className="text-sm text-purple-200">{f.text}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* WAITLIST */}
-      <section id="waitlist" className="py-28 px-6 text-center">
-        <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-violet-400 to-fuchsia-400">
-          Join the Waitlist
-        </h2>
-        <p className="text-purple-300 mb-10 max-w-lg mx-auto">
-          Be the first to claim your Balkan Sheep NFT and experience Reverse RWA in action.
-        </p>
-
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeYRj2RxxyvdJZlbuPUJFN1oeCofCL1niUK6zSw8AKwFHU90Q/viewform"
-            target="_blank"
+        {[
+          {
+            icon: <Wallet size={40} color="#f5b352" />,
+            title: 'Own the Design',
+            text: 'Connect your wallet to claim a tokenized design - your key to verified, real-world creation.',
+          },
+          {
+            icon: <QrCode size={40} color="#f5b352" />,
+            title: 'Identity',
+            text: 'Each physical item carries its digital twin - an engraved link proving authenticity and origin.',
+          },
+          {
+            icon: <BadgeCheck size={40} color="#f5b352" />,
+            title: 'Proof of Make',
+            text: 'Your NFT certifies not just ownership, but the act of creation itself - machine-verified and logged on-chain.',
+          },
+          {
+            icon: <Mail size={40} color="#f5b352" />,
+            title: 'Build the Future',
+            text: 'Join a growing ecosystem of designers, makers, and collectors powering the next era of decentralized fabrication.',
+          },
+        ].map((f) => (
+          <div
+            key={f.title}
+            style={{
+              background: '#1a0d3a',
+              borderRadius: 16,
+              padding: 20,
+              border: '1px solid #cf496850',
+            }}
           >
-            <button className="bg-fuchsia-500 hover:bg-fuchsia-400 text-white px-8 py-3 rounded-full font-medium">
-              Join Waitlist on Google Form →
-            </button>
-          </Link>
+            <div style={{ marginBottom: 10 }}>{f.icon}</div>
+            <h3 style={{ fontSize: 20, fontWeight: 600 }}>{f.title}</h3>
+            <p style={{ fontSize: 14, color: '#d0bfff' }}>{f.text}</p>
+          </div>
+        ))}
       </section>
 
-      {/* CTA */}
-      <section className="py-16 text-center border-t border-fuchsia-800/30 bg-linear-to-r from-fuchsia-800/20 to-violet-800/20">
-        <Zap className="mx-auto mb-3 text-fuchsia-400" />
-        <h3 className="text-xl font-semibold mb-2 text-fuchsia-300">
-          Reverse RWA in Motion
-        </h3>
-        <p className="text-purple-300 max-w-md mx-auto">
-          Each NFT represents a real, engraved object — verified, tangible, and collectible.
-        </p>
+      {/* PROCESS VISUAL */}
+      <section
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '40px',
+          flexWrap: 'wrap',
+          padding: '40px 40px',
+          background: '#130837',
+          borderTop: '1px solid #cf496840',
+          borderBottom: '1px solid #cf496840',
+        }}
+      >
+        {[
+          {
+            img: '/nft.jpg',
+            title: 'Digital Origin',
+            text: 'Mint your NFT to define the identity of your creation.',
+          },
+          {
+            img: '/machine-step.gif',
+            title: 'Machine Production',
+            text: 'Automated systems materialize assets linked to your wallet.',
+          },
+          {
+            img: '/rwa-step.gif',
+            title: 'Reverse RWA',
+            text: 'Each physical product is engraved and verified on-chain.',
+          },
+        ].map((step, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2, duration: 0.6 }}
+            style={{
+              width: 300,
+              textAlign: 'center',
+            }}
+          >
+            <div
+              style={{
+                borderRadius: 16,
+                overflow: 'hidden',
+                boxShadow: '0 0 20px #cf496830',
+                marginBottom: 16,
+              }}
+            >
+            <Image
+              src={step.img}
+              alt={step.title}
+              width={300}
+              height={200}
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'cover',
+                borderRadius: 16,
+              }}
+            />
+            </div>
+            <h3 style={{ fontSize: 20, color: '#cf4968', fontWeight: 600 }}>
+              {step.title}
+            </h3>
+            <p style={{ fontSize: 14, color: '#d1c1e8', marginTop: 8 }}>
+              {step.text}
+            </p>
+          </motion.div>
+        ))}
       </section>
 
       {/* FOOTER */}
-      <footer className="py-6 text-center text-purple-400 text-sm border-t border-fuchsia-900/30">
-        © {new Date().getFullYear()} Materialize Labs · Built for Hackathons ⚡
+      <footer
+        style={{
+          padding: '40px 0 20px',
+          color: '#aaa',
+          fontSize: 14,
+          textAlign: 'center',
+        }}
+      >
+        © {new Date().getFullYear()} Materialize Labs · Built for the Real World ⚡
       </footer>
     </main>
   )
