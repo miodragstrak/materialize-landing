@@ -23,13 +23,12 @@ export default function LandingPage() {
     <header
       style={{
         width: '100%',
-        position: 'absolute',
-        top: 0,
-        left: 0,
+        position: 'relative',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: '50px',
+        paddingTop: '40px',
+        marginBottom: '20px',
         zIndex: 50,
       }}
     >
@@ -80,13 +79,13 @@ export default function LandingPage() {
       {/* HERO */}
       <section
         style={{
-          minHeight: '70vh',
+          minHeight: 'calc(100vh - 140px)',
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '60px 20px 20px',
+          padding: '20px',
           textAlign: 'center',
         }}
       >
@@ -153,8 +152,8 @@ export default function LandingPage() {
               Join Waitlist →
             </motion.a>
 
-           {/*} <motion.a
-              href="https://materializeit4me.vercel.app"
+           <motion.a
+              href="https://materializeit4me.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -171,7 +170,7 @@ export default function LandingPage() {
               }}
             >
               Enter Demo →
-            </motion.a> */}
+            </motion.a>
           </div>
         </motion.div>
       </section>
