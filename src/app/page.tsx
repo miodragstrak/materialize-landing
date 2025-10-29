@@ -153,7 +153,7 @@ export default function LandingPage() {
             </motion.a>
 
            <motion.a
-              href="https://materializeit4me.vercel.app/"
+              href="https://demo.materialize4.me/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
