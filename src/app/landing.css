@@ -10,6 +10,113 @@
   align-items: center;
 }
 
+/* FRONTIER HACKATHON BANNER */
+.frontier-banner {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.frontier-banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.frontier-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(14, 5, 36, 0.75) 0%,
+    rgba(33, 12, 63, 0.65) 50%,
+    rgba(14, 5, 36, 0.75) 100%
+  );
+  z-index: 2;
+  backdrop-filter: blur(2px);
+}
+
+.frontier-banner-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.frontier-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #f5b352;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.frontier-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #ff80a5, #cf4968);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(207, 73, 104, 0.3);
+}
+
+.frontier-cta {
+  background: #f5b352;
+  color: #0e0524;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 12px;
+  box-shadow: 0 0 30px rgba(245, 179, 82, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.frontier-cta:hover {
+  box-shadow: 0 0 40px rgba(245, 179, 82, 0.6), 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .frontier-banner {
+    height: 400px;
+    margin-top: 50px;
+  }
+  
+  .frontier-title {
+    font-size: 2.2rem;
+  }
+  
+  .frontier-label {
+    font-size: 12px;
+  }
+  
+  .frontier-cta {
+    font-size: 14px;
+    padding: 14px 32px;
+  }
+}
+
 /* HEADER */
 .landing-header {
   width: 100%;

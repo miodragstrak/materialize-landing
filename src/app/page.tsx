@@ -26,6 +26,37 @@ export default function LandingPage() {
         </a>
      </nav>
 
+      {/* FRONTIER HACKATHON BANNER */}
+      <section className="frontier-banner">
+        <Image
+          src="/DEMO.png"
+          alt="Solana Colosseum Frontier Hackathon"
+          fill
+          className="frontier-banner-image"
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="frontier-banner-overlay" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="frontier-banner-content"
+        >
+          <div className="frontier-label">NOW PARTICIPATING IN</div>
+          <h2 className="frontier-title">Solana Colosseum Frontier Hackathon</h2>
+          <motion.a
+            href="https://app.materialize4.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="frontier-cta"
+          >
+            Explore Manufacturing Demo →
+          </motion.a>
+        </motion.div>
+      </section>
 
       {/* HEADER */}
       <header className="landing-header">
